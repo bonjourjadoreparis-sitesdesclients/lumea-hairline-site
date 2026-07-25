@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résultats — LUMEA Hairline Studio</title>
+<meta name="description" content="Avant / après tricopigmentation : tête entière, densification, cicatrices, densité femme. Photos plein cadre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;500;600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.entete-page{padding:9rem 1.4rem 3rem;max-width:1060px;margin:0 auto;text-align:center}
+.entete-page h1{font-family:'Cinzel',serif;font-weight:500;font-size:clamp(1.9rem,6.5vw,3rem);line-height:1.2;margin-top:.7rem}
+.entete-page p.intro{color:#C9C2B4;max-width:52ch;margin:1rem auto 0}
+.grille-resultats{display:grid;gap:1.2rem;grid-template-columns:1fr}
+@media(min-width:720px){.grille-resultats{grid-template-columns:repeat(2,1fr)}}
+.resultat{border:1px solid var(--ligne);border-radius:4px;overflow:hidden;position:relative;background:#000}
+.resultat img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;transition:transform 1s ease}
+.resultat:hover img{transform:scale(1.03)}
+.resultat figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1.2rem 1rem;font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--creme);background:linear-gradient(to top,rgba(11,10,8,.94),transparent)}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav>
+  <a class="logo" href="index.html"><img src="img/logo-mark.png" alt="LH" class="logo-mark">LUMEA <span>·</span> HAIRLINE STUDIO</a>
+  <div class="nav-liens">
+    <a href="prestations.html">Prestations</a>
+    <a href="resultats.html">Résultats</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="contact.html">Prendre RDV</a>
+</nav>
+<header class="entete-page">
+  <p class="eyebrow">Avant / Après</p>
+  <h1>Nos résultats, plein cadre</h1>
+  <p class="intro">Chaque résultat est réalisé en micro-point, point par point. Photos non retouchées, format d'origine.</p>
+</header>
+<section class="reveal" style="padding-top:1rem">
+  <div class="grille-resultats stagger"><figure class="resultat"><img src="img/tete-entiere.jpg" alt="Tricopigmentation tête entière" loading="lazy"><figcaption>Tricopigmentation tête entière</figcaption></figure><figure class="resultat"><img src="img/densite.jpg" alt="Densification & pigmentation" loading="lazy"><figcaption>Densification & pigmentation</figcaption></figure><figure class="resultat"><img src="img/precision.jpg" alt="Effet naturel indétectable" loading="lazy"><figcaption>Effet naturel indétectable</figcaption></figure><figure class="resultat"><img src="img/ligne-redessinee.jpg" alt="Ligne frontale redessinée" loading="lazy"><figcaption>Ligne frontale redessinée</figcaption></figure><figure class="resultat"><img src="img/cicatrice.jpg" alt="Camouflage cicatrices FUE / FUT" loading="lazy"><figcaption>Camouflage cicatrices FUE / FUT</figcaption></figure><figure class="resultat"><img src="img/femme.jpg" alt="Densité femme" loading="lazy"><figcaption>Densité femme</figcaption></figure><figure class="resultat"><img src="img/lignes-3.jpg" alt="Les 3 types de ligne frontale" loading="lazy"><figcaption>Les 3 types de ligne frontale</figcaption></figure><figure class="resultat"><img src="img/previsu-ia.jpg" alt="Prévisualisation IA — avant / après" loading="lazy"><figcaption>Prévisualisation IA — avant / après</figcaption></figure></div>
+</section>
+<section class="final reveal" style="text-align:center;border-top:1px solid var(--ligne)">
+  <p class="eyebrow">Et vous ?</p>
+  <h2>Visualisez votre propre transformation avec la prévisualisation IA gratuite.</h2>
+  <div class="cta-row" style="justify-content:center;margin-top:2rem">
+    <a class="btn btn-or" href="contact.html">Envoyer mes photos</a>
+  </div>
+</section>
+<footer>
+  <img src="img/logo-full.png" alt="LUMEA Hairline Studio" class="logo-footer">
+  Tricopigmentation · Densification · Alopécie — Var<br>
+  <a href="index.html">Accueil</a> · <a href="prestations.html">Prestations</a> · <a href="resultats.html">Résultats</a> · <a href="contact.html">Contact</a><br>
+  Instagram @lumea.hairline.studio
+  <p class="credit">Site créé par <a href="https://maisonbrandparis.fr" target="_blank" rel="noopener">Maison Brand Paris</a></p>
+</footer>
+<a class="wa-bulle" href="https://wa.me/qr/CVUAMJYYGA55K1" target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 17.1c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-3.7-.8-3.1-1.3-5.1-4.4-5.3-4.6-.2-.2-1.3-1.7-1.3-3.2s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.3.7.9 2.2 1 2.4.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.8 1.7 3.2 1.9.4.2.6.2.9-.1.2-.3 1-1.2 1.3-1.6.3-.4.5-.3.9-.2.4.1 2.4 1.1 2.8 1.3.4.2.7.3.8.5.1.2.1.9-.2 1.7z"/></svg>
+</a>
+<script src="js/site.js"></script>
+</body>
+</html>
