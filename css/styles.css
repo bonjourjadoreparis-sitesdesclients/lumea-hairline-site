@@ -23,8 +23,8 @@ section{padding:4.6rem 1.4rem;max-width:1060px;margin:0 auto}
 
 /* ===== NAV ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.4rem;background:rgba(24,21,18,.42);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,169,110,.1)}
-.logo{font-family:'Cinzel',serif;font-size:1.3rem;letter-spacing:.16em;color:var(--or-clair);display:flex;align-items:center;gap:.8rem}
-.logo-mark{height:46px;width:auto;display:block}
+.logo{font-family:'Cinzel',serif;font-size:1.75rem;letter-spacing:.14em;color:var(--or-clair);display:flex;align-items:center;gap:.9rem}
+.logo-mark{height:58px;width:auto;display:block}
 .logo span{color:var(--or)}
 .nav-cta{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--or);color:var(--or-clair);padding:.5rem 1rem;border-radius:2px;transition:.25s}
 .nav-cta:hover{background:var(--or);color:var(--noir)}
@@ -375,5 +375,6 @@ nav{gap:.8rem}
 
 /* ===== FIL INSTAGRAM : grand panneau (12 posts) ===== */
 .ig-panneau{max-width:880px;margin:2.4rem auto 0;border:1px solid rgba(201,169,110,.5);border-radius:14px;padding:.6rem;background:linear-gradient(180deg,#171310,#0B0A08);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(201,169,110,.12)}
-.ig-panneau iframe{display:block;width:100%;height:1180px;border:0;border-radius:10px;background:#fff}
-@media(max-width:719px){.ig-panneau iframe{height:940px}}
+.ig-panneau{overflow:hidden}
+.ig-panneau iframe{display:block;width:100%;height:720px;border:0;border-radius:10px;background:#fff}
+@media(max-width:719px){.ig-panneau iframe{height:430px}}
