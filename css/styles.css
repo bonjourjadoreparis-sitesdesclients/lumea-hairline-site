@@ -163,7 +163,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .duo{display:grid;gap:2.2rem;align-items:center}
 @media(min-width:760px){.duo{grid-template-columns:1fr 1fr}.duo.inverse .duo-img{order:2}}
 .duo-img{border:1px solid var(--ligne);border-radius:4px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
-.duo-img img{transition:transform .2s linear;will-change:transform;transform:translateY(var(--py,0)) scale(1.12)}
+.duo-img img{display:block;width:100%}
+.duo-img.parallax img{transition:transform .2s linear;will-change:transform;transform:translateY(var(--py,0)) scale(1.12)}
 .duo ul{list-style:none;margin-top:1.2rem}
 .duo li{padding:.55rem 0;border-top:1px solid var(--ligne);font-size:.95rem;color:#C9C2B4}
 .duo li b{color:var(--creme);font-weight:500}
@@ -357,3 +358,8 @@ h2.mots-vus .mot{opacity:1;transform:none}
   h2 .mot{opacity:1;transform:none;transition:none}
   .wa-bulle{animation:none}
 }
+
+/* ===== FIL INSTAGRAM ===== */
+.ig-fil{max-width:540px;margin:2rem auto 0;border:1px solid var(--ligne);border-radius:4px;overflow:hidden;background:#000}
+.ig-fil iframe{display:block;width:100%;height:480px;border:0}
+@media(min-width:720px){.ig-fil iframe{height:560px}}
