@@ -34,7 +34,7 @@ section{padding:4.6rem 1.4rem;max-width:1060px;margin:0 auto}
 #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--or),var(--or-clair));z-index:100;box-shadow:0 0 12px rgba(201,169,110,.7)}
 
 /* ===== NAV ===== */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.4rem;background:linear-gradient(to bottom,rgba(11,10,8,.92),rgba(11,10,8,.75));backdrop-filter:blur(10px);border-bottom:1px solid var(--ligne)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.4rem;background:transparent;border-bottom:none;text-shadow:0 1px 10px rgba(0,0,0,.65)}
 .logo{font-family:'Cinzel',serif;font-size:1.02rem;letter-spacing:.18em;color:var(--or-clair);display:flex;align-items:center;gap:.7rem}
 .logo-mark{height:34px;width:auto;display:block}
 .logo span{color:var(--or)}
@@ -272,6 +272,49 @@ footer .credit a:hover{color:var(--or-clair)}
 .cta-flottant a.principal{background:linear-gradient(120deg,var(--or),#B08F55);color:var(--noir);font-weight:500}
 @media(min-width:720px){.cta-flottant{display:none}}
 
+
+/* ===== WHATSAPP / GOOGLE / INSTAGRAM (couleurs + motion) ===== */
+.btn-wa{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-weight:500;animation:waPulse 2.2s ease-in-out infinite}
+.btn-wa:hover{filter:brightness(1.08);transform:translateY(-2px)}
+@keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}55%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+.btn-wa svg{flex:none}
+.badge-google{display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 1.5rem;border-radius:999px;background:#fff;color:#1F1F1F;font-weight:500;font-size:.95rem;letter-spacing:.02em;position:relative;transition:.25s}
+.badge-google::before{content:"";position:absolute;inset:-3px;border-radius:999px;background:conic-gradient(from var(--ga,0deg),#4285F4,#EA4335,#FBBC05,#34A853,#4285F4);z-index:-1;animation:gTourne 3.2s linear infinite;filter:blur(1px)}
+@property --ga{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes gTourne{to{--ga:360deg}}
+.badge-google:hover{transform:translateY(-2px)}
+.badge-google .g{font-weight:700;font-size:1.25rem;background:linear-gradient(90deg,#4285F4 25%,#EA4335 25% 50%,#FBBC05 50% 75%,#34A853 75%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.badge-google .etoiles-g{color:#FBBC05;letter-spacing:.1em}
+.avis-tete{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.note-globale{font-family:'Anton',sans-serif;font-size:2rem;color:var(--creme)}
+.note-globale small{font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);display:block}
+
+/* ===== REELS (vidéos verticales) ===== */
+.reels{display:flex;gap:1rem;margin-top:2.4rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.5rem}
+.reels::-webkit-scrollbar{display:none}
+.reel{flex:0 0 62%;max-width:300px;scroll-snap-align:center;border:1px solid var(--ligne);border-radius:10px;overflow:hidden;background:#000;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:.35s}
+.reel:hover{border-color:var(--or);transform:translateY(-4px)}
+@media(min-width:720px){.reel{flex:0 0 31%}}
+.reel video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+
+/* ===== PRÉVISUALISATION IA ===== */
+.ia-img{border:1px solid var(--ligne);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);max-width:420px;margin:0 auto}
+
+/* ===== INSTAGRAM ===== */
+.insta{text-align:center}
+.insta-cta{display:inline-flex;align-items:center;gap:.7rem;padding:1rem 1.8rem;border-radius:999px;color:#fff;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;position:relative;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);background-size:220% 220%;animation:instaVague 4s ease-in-out infinite;transition:.25s}
+@keyframes instaVague{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.insta-cta:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(204,35,102,.4)}
+
+
+.carte-video{margin:-1.8rem -1.4rem 1.2rem;overflow:hidden;aspect-ratio:16/10;background:#000}
+.carte-video video{width:100%;height:100%;object-fit:cover;display:block}
+
+.ig-section{text-align:center}
+.btn-ig{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);background-size:280% 280%;color:#fff;font-weight:500;font-size:.9rem;padding:1.1rem 2rem;animation:igVague 5s ease infinite}
+@keyframes igVague{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.btn-ig:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(221,42,123,.4)}
+
 /* ===== REVEAL ===== */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
 .reveal.vu{opacity:1;transform:none}
@@ -310,11 +353,12 @@ footer .credit a:hover{color:var(--or-clair)}
     <p class="sous">Tricopigmentation micro-point ultra réaliste, homme & femme. Un résultat <b>visible dès la première séance</b>, indétectable de près comme de loin.</p>
     <div class="cta-row">
       <a class="btn btn-or" href="#rdv">Diagnostic gratuit</a>
-      <span class="badge">Diagnostic privé<br>& confidentiel</span>
+      <a class="btn btn-wa" href="https://wa.me/qr/CVUAMJYYGA55K1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.7 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.5.6c-.2.2-.4.4-.2.7.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.6.1.8-.1l1-1.2c.2-.3.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.5.3.6.4.1.2.1.7-.1 1.5Z"/></svg> WhatsApp</a>
     </div>
     <div class="stats">
       <div class="stat"><div class="chiffre">0</div><div class="label">Chirurgie</div></div>
       <div class="stat"><div class="chiffre">1<em>re</em></div><div class="label">Séance, résultat visible</div></div>
+      <div class="stat"><div class="chiffre"><span data-compte="120000">0</span></div><div class="label">Petits points réalisés</div></div>
       <div class="stat"><div class="chiffre"><span data-compte="100">0</span><em>%</em></div><div class="label">Sur mesure</div></div>
     </div>
   </div>
@@ -337,6 +381,7 @@ footer .credit a:hover{color:var(--or-clair)}
   <h2>Une solution personnalisée pour chaque situation</h2>
   <div class="grid stagger">
     <div class="carte">
+      <div class="carte-video"><video autoplay muted loop playsinline src="img/presta-1.mp4" aria-label="Séance de tricopigmentation en cours"></video></div>
       <div class="texte">
         <h3>Tricopigmentation tête entière</h3>
         <p>Recrée l'apparence d'une chevelure rasée par micro-points pigmentés sur l'ensemble du cuir chevelu. Effet rasé 0, sans reflet.</p>
@@ -364,6 +409,12 @@ footer .credit a:hover{color:var(--or-clair)}
         <a class="lien" href="#rdv">Demander un diagnostic</a>
       </div>
     </div>
+  </div>
+
+  <div class="reels reveal">
+    <div class="reel"><video autoplay muted loop playsinline preload="metadata" src="img/reel-1.mp4"></video></div>
+    <div class="reel"><video autoplay muted loop playsinline preload="metadata" src="img/reel-2.mp4"></video></div>
+    <div class="reel"><video autoplay muted loop playsinline preload="metadata" src="img/reel-3.mp4"></video></div>
   </div>
 </section>
 
@@ -430,10 +481,11 @@ footer .credit a:hover{color:var(--or-clair)}
     <div class="etape">
       <span class="num">III</span>
       <h3>Le résultat</h3>
-      <p>Effet visible dès la première séance, affiné lors des retouches. Un rendu qui reste naturel de près comme de loin.</p>
+      <p>Effet visible dès la première séance. De 1 à 4 séances selon diagnostic, puis des retouches espacées pour un rendu qui reste naturel dans le temps.</p>
     </div>
   </div>
   <div class="rassure">
+    <span class="puce">1 à 4 séances selon diagnostic</span>
     <span class="puce">Sans chirurgie</span>
     <span class="puce">Résultat immédiat</span>
     <span class="puce">Rendu indétectable</span>
@@ -441,20 +493,42 @@ footer .credit a:hover{color:var(--or-clair)}
   </div>
 </section>
 
-<section class="reveal">
+<section class="reveal" id="avis">
   <p class="eyebrow">Ils nous font confiance</p>
-  <h2>Vos avis</h2>
+  <div class="avis-tete">
+    <h2>Vos avis</h2>
+    <a class="badge-google" href="https://www.planity.com/lumea-depil-83140-six-fours-les-plages-f5j" target="_blank" rel="noopener"><span class="g">G</span> <span>5,0</span> <span class="etoiles-g">★★★★★</span> <span>26 avis</span></a>
+  </div>
   <div class="avis-grid stagger">
     <div class="avis">
       <div class="etoiles">★★★★★</div>
-      <p>« Emplacement pour un avis Google réel — nous intégrerons vos meilleurs avis clients ici, avec lien direct vers votre fiche Google. »</p>
-      <span class="qui">Client · Tricopigmentation</span>
+      <p>« Tout est top, rien à dire ! Irma et Sarah sont toutes les deux très accueillantes, sympathiques et très professionnelles ! »</p>
+      <span class="qui">Avis vérifié · Lumea Depil</span>
     </div>
     <div class="avis">
       <div class="etoiles">★★★★★</div>
-      <p>« Deuxième emplacement d'avis — la preuve sociale est ce qui transforme un visiteur hésitant en rendez-vous confirmé. »</p>
-      <span class="qui">Cliente · Densité</span>
+      <p>« Un GRAND merci pour la gentillesse et le professionnalisme. Je viens de Paris pour mes prestations. »</p>
+      <span class="qui">Avis vérifié · Lumea Depil</span>
     </div>
+    <div class="avis">
+      <div class="etoiles">★★★★★</div>
+      <p>« Prestation incroyable ! Un travail fait avec soin et attention. Je recommande cet institut, vous pouvez y aller les yeux fermés ! »</p>
+      <span class="qui">Avis vérifié · Lumea Depil</span>
+    </div>
+    <div class="avis">
+      <div class="etoiles">★★★★★</div>
+      <p>« Véritable travail d'orfèvre. On se sent à l'aise dès l'arrivée. Très professionnel, je recommande à 1000%. »</p>
+      <span class="qui">Avis vérifié · Lumea Depil</span>
+    </div>
+  </div>
+</section>
+
+<section class="reveal ig-section" id="instagram">
+  <p class="eyebrow">Suivez nos résultats</p>
+  <h2>Instagram</h2>
+  <p style="color:#C9C2B4;max-width:48ch;margin:0 auto">Avant / après, coulisses des séances et transformations en vidéo, publiés chaque semaine.</p>
+  <div class="cta-row" style="justify-content:center;margin-top:2rem">
+    <a class="btn btn-ig" href="https://instagram.com/lumea.hairline.studio" target="_blank" rel="noopener">@lumea.hairline.studio</a>
   </div>
 </section>
 
@@ -464,13 +538,39 @@ footer .credit a:hover{color:var(--or-clair)}
   <div class="aurora-voile" aria-hidden="true"></div>
   <div class="aurora-grain" aria-hidden="true"></div>
 
+<section class="reveal">
+  <div class="duo">
+    <div class="duo-img ia-img"><img src="img/previsualisation-ia.jpg" alt="Prévisualisation IA gratuite — voyez votre futur résultat avant de vous lancer" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">Exclusif</p>
+      <h2>Prévisualisation IA gratuite</h2>
+      <p style="color:#C9C2B4">Voyez votre futur résultat avant de vous lancer. Envoyez vos photos (face, dessus, côtés), nous générons votre rendu APRÈS grâce à l'IA.</p>
+      <ul>
+        <li><b>Envoyez vos photos avant</b> — claires, de face, dessus et côtés</li>
+        <li><b>Nous générons votre après</b> — prévisualisation réaliste par IA</li>
+        <li><b>Décidez en confiance</b> — vous voyez le résultat avant la séance</li>
+      </ul>
+      <div class="cta-row" style="margin-top:1.6rem">
+        <a class="btn btn-wa" href="https://wa.me/qr/CVUAMJYYGA55K1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.7 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.5.6c-.2.2-.4.4-.2.7.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.6.1.8-.1l1-1.2c.2-.3.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.5.3.6.4.1.2.1.7-.1 1.5Z"/></svg> Recevoir ma prévisualisation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="insta reveal">
+  <p class="eyebrow">Instagram</p>
+  <h2>Suivez les transformations en direct</h2>
+  <p style="color:#C9C2B4;max-width:46ch;margin:0 auto 1.8rem">Avant/après, coulisses des séances, résultats clients : tout est sur le compte Instagram du studio.</p>
+  <a class="insta-cta" href="https://instagram.com/lumea.hairline.studio" target="_blank" rel="noopener">@lumea.hairline.studio</a>
+</section>
+
 <section class="offre reveal">
   <div class="offre-in">
     <p class="eyebrow">Offre de lancement</p>
     <h2>Votre diagnostic <em>100% gratuit</em> sous 24h</h2>
     <p>Envoyez simplement 2 ou 3 photos de votre zone par message privé. Vous recevez un plan personnalisé : technique adaptée, nombre de séances et tarif exact — avant de décider quoi que ce soit.</p>
     <div class="cta-row">
-      <a class="btn btn-or" href="https://ig.me/m/lumea.hairline.studio" target="_blank" rel="noopener">J'envoie mes photos</a>
+      <a class="btn btn-wa" href="https://wa.me/qr/CVUAMJYYGA55K1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.7 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.5.6c-.2.2-.4.4-.2.7.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.6.1.8-.1l1-1.2c.2-.3.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.5.3.6.4.1.2.1.7-.1 1.5Z"/></svg> J'envoie mes photos sur WhatsApp</a>
     </div>
     <p class="mini">Sans engagement · Privé & confidentiel · Réponse sous 24h</p>
   </div>
@@ -480,7 +580,7 @@ footer .credit a:hover{color:var(--or-clair)}
   <p class="eyebrow">Diagnostic gratuit</p>
   <h2>Envoyez vos photos, recevez votre plan personnalisé.</h2>
   <div class="cta-row">
-    <a class="btn btn-or" href="https://ig.me/m/lumea.hairline.studio" target="_blank" rel="noopener">Diagnostic par message privé</a>
+    <a class="btn btn-wa" href="https://wa.me/qr/CVUAMJYYGA55K1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.7 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.5.6c-.2.2-.4.4-.2.7.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.6.1.8-.1l1-1.2c.2-.3.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.5.3.6.4.1.2.1.7-.1 1.5Z"/></svg> Diagnostic sur WhatsApp</a>
     <a class="btn btn-ghost" href="https://instagram.com/lumea.hairline.studio" target="_blank" rel="noopener">Voir Instagram</a>
   </div>
 </section>
@@ -494,7 +594,7 @@ footer .credit a:hover{color:var(--or-clair)}
 </footer>
 
 <div class="cta-flottant" id="ctaFlottant">
-  <a href="https://instagram.com/lumea.hairline.studio" target="_blank" rel="noopener">Instagram</a>
+  <a href="https://wa.me/qr/CVUAMJYYGA55K1" target="_blank" rel="noopener" style="background:#25D366;color:#fff;font-weight:500">WhatsApp</a>
   <a class="principal" href="#rdv">Diagnostic gratuit</a>
 </div>
 
@@ -604,16 +704,18 @@ if(dSec&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vu');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
 
-// ===== Compteur =====
-const cEl=document.querySelector('[data-compte]');
-const ioC=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;ioC.unobserve(cEl);
-  const cible=+cEl.dataset.compte,t0=performance.now();
-  (function tick(t){const p=Math.min((t-t0)/1400,1);
-    cEl.textContent=Math.round(cible*(1-Math.pow(1-p,3)));
-    if(p<1)requestAnimationFrame(tick);})(t0);
-}));
-ioC.observe(cEl);
+// ===== Compteurs =====
+document.querySelectorAll('[data-compte]').forEach(el=>{
+  const io2=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;io2.unobserve(el);
+    const cible=+el.dataset.compte,t0=performance.now(),duree=cible>1000?2200:1400;
+    (function tick(t){const p=Math.min((t-t0)/duree,1);
+      const v=Math.round(cible*(1-Math.pow(1-p,3)));
+      el.textContent=v.toLocaleString('fr-FR');
+      if(p<1)requestAnimationFrame(tick);})(t0);
+  }));
+  io2.observe(el);
+});
 
 // ===== Parallax =====
 const pxs=[...document.querySelectorAll('.parallax img')];
