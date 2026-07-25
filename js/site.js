@@ -244,11 +244,10 @@ if(sceneV&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
     tels.forEach(t=>{
       const i=+t.dataset.i-1; // -1,0,1
       const x=i*unite*e;
-      const rot=i*10*(mobile()?0.55:1)*(1-e*0.6)*(e>0?1:0)+i*10*(e===0?0:0);
-      const rotFinal=i*(mobile()?5:7)*(1-e)+i*(mobile()?3:2)*e;
+      const rot=i*(mobile()?5:7)*(1-e)+i*(mobile()?3:2)*e;
       const y=Math.abs(i)*14*e;
       const sc=(i===0?0.94+0.12*e:0.94+0.02*e);
-      t.style.transform=`translateX(${x}px) translateY(${y}px) rotate(${rotFinal}deg) scale(${sc})`;
+      t.style.transform=`translate(-50%,-50%) translateX(${x}px) translateY(${y}px) rotate(${rot}deg) scale(${sc})`;
       if(i!==0)t.style.filter=`brightness(${0.75+0.25*e*0.6})`;
     });
     lueur.style.setProperty('--lz',(e*1).toFixed(3));

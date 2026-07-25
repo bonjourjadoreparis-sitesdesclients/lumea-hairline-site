@@ -278,14 +278,6 @@ footer .credit a:hover{color:var(--or-clair)}
 .note-globale{font-family:'Anton',sans-serif;font-size:2rem;color:var(--creme)}
 .note-globale small{font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);display:block}
 
-/* ===== REELS (vidéos verticales) ===== */
-.reels{display:flex;gap:1rem;margin-top:2.4rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.5rem}
-.reels::-webkit-scrollbar{display:none}
-.reel{flex:0 0 62%;max-width:300px;scroll-snap-align:center;border:1px solid var(--ligne);border-radius:10px;overflow:hidden;background:#000;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:.35s}
-.reel:hover{border-color:var(--or);transform:translateY(-4px)}
-@media(min-width:720px){.reel{flex:0 0 31%}}
-.reel video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
-
 /* ===== PRÉVISUALISATION IA ===== */
 .ia-img{border:1px solid var(--ligne);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);max-width:420px;margin:0 auto}
 
@@ -386,13 +378,13 @@ body.menu-ouvert .menu-pied{opacity:1}
 body.menu-ouvert{overflow:hidden}
 
 /* ===== SCÈNE VIDÉOS : ÉVENTAIL 3D AU SCROLL ===== */
-.scene-videos{padding:0;max-width:none;height:300vh;position:relative;background:var(--noir)}
-.scene-colle{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;perspective:1200px}
+.scene-videos{padding:0;max-width:none;height:260vh;position:relative;background:var(--noir)}
+.scene-colle{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;justify-content:center;align-items:center;perspective:1200px}
 .scene-lueur{position:absolute;top:50%;left:50%;width:70vmax;height:70vmax;transform:translate(-50%,-50%) scale(var(--lz,0));border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.22),rgba(201,169,110,.06) 45%,transparent 70%);pointer-events:none;transition:none}
 .scene-tete{text-align:center;margin-bottom:2rem;position:relative;z-index:2}
 .scene-tete h2{margin-bottom:0}
-.eventail{position:relative;display:flex;align-items:center;justify-content:center;width:100%;transform-style:preserve-3d}
-.tel{position:absolute;width:min(240px,52vw);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(201,169,110,.5);background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6);will-change:transform;transform:translateX(0) rotate(0) scale(.94)}
+.eventail{position:relative;width:100%;height:min(64vh,560px);transform-style:preserve-3d}
+.tel{position:absolute;left:50%;top:50%;width:min(250px,54vw);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(201,169,110,.5);background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6);will-change:transform;transform:translate(-50%,-50%) scale(.94)}
 .tel[data-i="1"]{z-index:3}
 .tel[data-i="0"],.tel[data-i="2"]{z-index:2;filter:brightness(.75)}
 .tel video{width:100%;height:100%;object-fit:cover;display:block}
@@ -400,4 +392,16 @@ body.menu-ouvert{overflow:hidden}
   .scene-videos{height:auto;padding:4rem 1rem}
   .scene-colle{position:static;height:auto;flex-direction:column;gap:1rem}
   .tel{position:static;transform:none!important;margin:.5rem}
+}
+
+/* ===== NAV mobile : espace logo / bouton ===== */
+nav{gap:.8rem}
+.logo{flex:1;min-width:0;white-space:nowrap;overflow:hidden}
+@media(max-width:560px){
+  .logo{font-size:.82rem;letter-spacing:.12em;gap:.5rem}
+  .logo-mark{height:28px}
+  .nav-cta{font-size:.68rem;padding:.45rem .7rem;letter-spacing:.08em;flex:none}
+}
+@media(max-width:400px){
+  .logo span,.logo{font-size:.74rem}
 }
