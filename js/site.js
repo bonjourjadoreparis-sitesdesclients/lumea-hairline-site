@@ -209,11 +209,6 @@ document.querySelectorAll('h2').forEach(t=>{
 const rid=document.getElementById('rideau');
 if(rid){setTimeout(()=>rid.remove(),2000)}
 
-// ===== Nav : page active =====
-const ici=location.pathname.split('/').pop()||'index.html';
-document.querySelectorAll('.nav-liens a').forEach(a=>{
-  if(a.getAttribute('href')===ici)a.classList.add('actif');
-});
 
 // ===== Menu burger plein écran =====
 const burger=document.getElementById('burger'),menuPlein=document.getElementById('menuPlein');
