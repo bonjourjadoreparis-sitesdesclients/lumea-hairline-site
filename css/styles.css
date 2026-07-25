@@ -23,8 +23,8 @@ section{padding:4.6rem 1.4rem;max-width:1060px;margin:0 auto}
 
 /* ===== NAV ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.4rem;background:rgba(24,21,18,.42);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,169,110,.1)}
-.logo{font-family:'Cinzel',serif;font-size:1.75rem;letter-spacing:.14em;color:var(--or-clair);display:flex;align-items:center;gap:.9rem}
-.logo-mark{height:58px;width:auto;display:block}
+.logo{font-family:'Cinzel',serif;font-size:2.3rem;letter-spacing:.12em;color:var(--or-clair);display:flex;align-items:center;gap:1rem;line-height:1}
+.logo-mark{height:64px;width:auto;display:block}
 .logo span{color:var(--or)}
 .nav-cta{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--or);color:var(--or-clair);padding:.5rem 1rem;border-radius:2px;transition:.25s}
 .nav-cta:hover{background:var(--or);color:var(--noir)}
@@ -346,11 +346,12 @@ h2.mots-vus .mot{opacity:1;transform:none}
 /* ===== NAV : logo deux lignes + espaces ===== */
 nav{gap:.8rem}
 .logo{flex:1;min-width:0;align-items:center}
-.logo-sub{display:inline-block;font-family:'Jost',sans-serif;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--or);line-height:1.5;margin-left:.6rem;vertical-align:middle}
+.logo-sub{font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--or);margin-left:.9rem;line-height:1.45}
 @media(max-width:560px){
-  .logo{font-size:.86rem;letter-spacing:.1em;gap:.45rem}
-  .logo-mark{height:26px}
-  .logo-sub{font-size:.5rem;letter-spacing:.22em;margin-left:.45rem}
+  .logo{font-size:1.6rem;letter-spacing:.08em;gap:.6rem}
+  .logo-mark{height:50px}
+  .logo-sub{font-size:.6rem;letter-spacing:.22em;margin-left:.6rem}
+  .logo-sub{font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--or);margin-left:.9rem;line-height:1.45}
   .nav-cta{font-size:.66rem;padding:.45rem .65rem;letter-spacing:.06em;flex:none}
 }
 
