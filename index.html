@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMEA Hairline Studio — Tricopigmentation dans le Var</title>
+<meta name="description" content="La solution contre la calvitie, les cheveux clairsemés et les cicatrices — sans chirurgie. Tricopigmentation homme & femme dans le Var. Diagnostic gratuit.">
+<meta property="og:title" content="LUMEA Hairline Studio — Tricopigmentation dans le Var">
+<meta property="og:description" content="Densité. Confiance. Sans chirurgie. Diagnostic gratuit par message privé.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;500;600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#0B0A08;
+  --noir2:#141210;
+  --or:#C9A96E;
+  --or-clair:#E9D9B4;
+  --creme:#F2ECDF;
+  --gris:#9A9184;
+  --ligne:rgba(201,169,110,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--noir);color:var(--creme);font-family:'Jost',sans-serif;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--or);font-weight:400}
+h1,h2,h3{font-family:'Cinzel',serif;font-weight:500;color:var(--creme)}
+h2{font-size:clamp(1.5rem,5.4vw,2.4rem);line-height:1.25;margin:.7rem 0 1rem}
+section{padding:4.6rem 1.4rem;max-width:1060px;margin:0 auto}
+
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--or),var(--or-clair));z-index:100;box-shadow:0 0 12px rgba(201,169,110,.7)}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.4rem;background:linear-gradient(to bottom,rgba(11,10,8,.92),rgba(11,10,8,.75));backdrop-filter:blur(10px);border-bottom:1px solid var(--ligne)}
+.logo{font-family:'Cinzel',serif;font-size:1.02rem;letter-spacing:.18em;color:var(--or-clair);display:flex;align-items:center;gap:.7rem}
+.logo-mark{height:34px;width:auto;display:block}
+.logo span{color:var(--or)}
+.nav-cta{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--or);color:var(--or-clair);padding:.5rem 1rem;border-radius:2px;transition:.25s}
+.nav-cta:hover{background:var(--or);color:var(--noir)}
+
+/* ===== HERO ===== */
+.hero{min-height:100svh;height:100dvh;position:relative;display:flex;align-items:flex-end;overflow:hidden;padding:0;max-width:none;background:#000}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 24%;animation:devoile 2.1s cubic-bezier(.65,0,.35,1) .35s both;will-change:clip-path}
+@media(min-width:720px){.hero-video{object-position:60% center}}
+@keyframes devoile{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* Rayon de lumière qui balaye et révèle */
+.scan{position:absolute;top:-6%;bottom:-6%;left:0;width:3px;z-index:4;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,var(--or-clair) 18%,#FFF6E0 50%,var(--or-clair) 82%,transparent);
+  box-shadow:0 0 24px 6px rgba(233,217,180,.9),0 0 90px 30px rgba(201,169,110,.55),-40px 0 120px 40px rgba(201,169,110,.25);
+  animation:balayage 2.1s cubic-bezier(.65,0,.35,1) .35s both,scanOut .7s ease 2.45s forwards}
+@keyframes balayage{from{left:-2%}to{left:102%}}
+@keyframes scanOut{to{opacity:0}}
+
+/* Poussière d'or autour de la tête */
+#poussiere{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;animation:fondu 1.5s ease 1.6s forwards}
+
+/* Halo doré qui suit le curseur */
+.halo{position:absolute;top:0;left:0;width:34vmax;height:34vmax;border-radius:50%;z-index:2;pointer-events:none;mix-blend-mode:screen;opacity:0;will-change:transform,opacity;
+  background:radial-gradient(circle,rgba(255,240,210,.2) 0%,rgba(233,217,180,.13) 32%,rgba(201,169,110,.07) 58%,transparent 78%)}
+
+.hero::after{content:"";position:absolute;inset:0;z-index:5;background:linear-gradient(to top,rgba(11,10,8,.98) 12%,rgba(11,10,8,.55) 42%,rgba(11,10,8,.05) 72%);pointer-events:none}
+@media(min-width:720px){
+  .hero{align-items:center}
+  .hero::after{background:linear-gradient(94deg,rgba(11,10,8,.92) 18%,rgba(11,10,8,.55) 40%,rgba(11,10,8,0) 62%)}
+}
+.hero-contenu{position:relative;z-index:6;padding:2rem 1.4rem 2.6rem;width:100%;max-width:none;margin:0;text-align:left}
+@media(min-width:720px){.hero-contenu{padding:7rem 4vw 5rem}}
+.hero .eyebrow{display:flex;align-items:center;gap:.6rem}
+.hero .eyebrow img{height:34px;width:auto;flex:none}
+.hero h1{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(2.7rem,12.5vw,5.4rem);line-height:1.02;letter-spacing:.01em;margin-top:1.1rem;color:var(--creme)}
+.hero h1 span{display:block;opacity:0;transform:translateY(28px);filter:blur(12px);animation:monte 1.1s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 span:nth-child(1){animation-delay:1.05s}
+.hero h1 span:nth-child(2){animation-delay:1.25s}
+.hero h1 span:nth-child(3){animation-delay:1.45s}
+@keyframes monte{to{opacity:1;transform:none;filter:blur(0)}}
+.hero h1 .l2{background:linear-gradient(110deg,var(--or) 20%,var(--or-clair) 40%,var(--or) 60%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:monte 1.1s cubic-bezier(.16,1,.3,1) 1.25s forwards,brille 5s linear 2.6s infinite}
+@keyframes brille{to{background-position:-200% 0}}
+.hero p.sous{margin:1.3rem 0 1.8rem;max-width:38ch;color:#C9C2B4;font-size:1rem;opacity:0;animation:fondu .9s ease 1.8s forwards}
+.hero p.sous b{color:var(--creme);font-weight:500}
+@keyframes fondu{to{opacity:1}}
+.cta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero .cta-row{opacity:0;animation:fondu .9s ease 2s forwards}
+.btn{display:inline-block;text-align:center;padding:.95rem 1.6rem;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;border-radius:2px;transition:.25s;position:relative;overflow:hidden}
+.btn-or{background:linear-gradient(120deg,var(--or),#B08F55);color:var(--noir);font-weight:500}
+.btn-or::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:balaye 3.6s ease-in-out infinite}
+@keyframes balaye{0%,60%{left:-80%}100%{left:140%}}
+.btn-or:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,169,110,.35)}
+.btn-ghost{border:1px solid rgba(201,169,110,.45);color:var(--or-clair);background:rgba(11,10,8,.35)}
+.btn-ghost:hover{border-color:var(--or);transform:translateY(-2px)}
+.badge{display:flex;align-items:center;gap:.55rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);line-height:1.4}
+.badge::before{content:"\2605";color:var(--or);font-size:1.05rem}
+.stats{display:flex;gap:2.2rem;margin-top:2.6rem;flex-wrap:wrap;opacity:0;animation:fondu .9s ease 2.2s forwards}
+.stat .chiffre{font-family:'Anton',sans-serif;font-size:clamp(1.7rem,6vw,2.5rem);color:var(--creme);line-height:1}
+.stat .chiffre em{font-style:normal;color:var(--or)}
+.stat .label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);margin-top:.35rem}
+
+/* ===== MARQUEE ===== */
+.marquee{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--noir2);overflow:hidden;padding:1rem 0;max-width:none}
+.marquee-piste{display:flex;width:max-content;animation:defile 26s linear infinite}
+.marquee:hover .marquee-piste{animation-play-state:paused}
+.marquee-piste span{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--or-clair);padding:0 1.4rem;white-space:nowrap}
+.marquee-piste span::before{content:"\2726";color:var(--or);margin-right:1.4rem}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* ===== SECTIONS CLAIRES (blanc crème) ===== */
+.clair{background:linear-gradient(180deg,#FBF9F4,#F4F0E6);color:#3A322A}
+.clair h2,.clair h3{color:#171310}
+.clair .eyebrow{color:#A8823F}
+.clair p{color:#6E655A}
+.clair .carte{background:#fff;border-color:rgba(23,19,16,.1);box-shadow:0 2px 14px rgba(23,19,16,.05)}
+.clair .carte:hover{border-color:var(--or);box-shadow:0 18px 40px rgba(23,19,16,.13)}
+.clair .carte p{color:#6E655A}
+.clair .carte .lien{color:#A8823F}
+.clair .etape{border-top-color:rgba(23,19,16,.14)}
+.clair .etape .num{color:#A8823F}
+.clair .etape p{color:#6E655A}
+.clair .puce{border-color:rgba(23,19,16,.16);color:#5A4E3E}
+.clair .puce:hover{border-color:var(--or);background:rgba(201,169,110,.12)}
+.clair .avis{background:#fff;border-color:rgba(23,19,16,.1);box-shadow:0 2px 14px rgba(23,19,16,.05)}
+.clair .avis:hover{border-color:var(--or)}
+.clair .avis p{color:#3A322A}
+.clair .avis .qui{color:#8A8072}
+.clair .etoiles{color:#A8823F}
+
+/* ===== PHRASE PONT (façon joesmp) ===== */
+.pont{text-align:center;padding:3.6rem 1.4rem 0}
+.pont h2{max-width:22ch;margin:0 auto}
+
+/* ===== PRESTATIONS (cartes photo, façon joesmp) ===== */
+.grid{display:grid;gap:1.1rem;margin-top:2rem}
+@media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+.carte{border:1px solid var(--ligne);border-radius:4px;overflow:hidden;background:linear-gradient(180deg,var(--noir2),transparent);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease;display:flex;flex-direction:column;position:relative}
+.carte::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--or),transparent);opacity:0;transition:.4s;z-index:2}
+.carte:hover{border-color:var(--or);transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.carte:hover::before{opacity:1}
+.carte .visuel{aspect-ratio:16/9;overflow:hidden;background:var(--noir2)}
+.carte .visuel img{width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+.carte:hover .visuel img{transform:scale(1.06)}
+.carte .texte{padding:1.4rem 1.4rem 1.6rem;flex:1;display:flex;flex-direction:column}
+.carte h3{font-size:1.05rem;letter-spacing:.06em;margin-bottom:.55rem}
+.carte p{font-size:.92rem;color:var(--gris);flex:1}
+.carte .lien{display:inline-block;margin-top:1rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--or);transition:.25s}
+.carte .lien::after{content:" \2192";transition:.25s}
+.carte:hover .lien::after{margin-left:.3rem}
+
+/* ===== SLIDER AVANT/APRÈS ===== */
+.ba-section{text-align:center}
+.ba{position:relative;width:100%;max-width:560px;margin:2rem auto 0;aspect-ratio:1/1;border-radius:4px;overflow:hidden;border:1px solid var(--ligne);touch-action:none;user-select:none;cursor:ew-resize;box-shadow:0 24px 60px rgba(0,0,0,.5);background:#000}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba img.apres{clip-path:inset(0 0 0 calc(100% - var(--cut,50%)))}
+.ba .tag{position:absolute;bottom:1rem;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--or-clair);background:rgba(11,10,8,.65);padding:.4rem .9rem;border:1px solid var(--ligne);border-radius:2px;z-index:5}
+.ba .tag.g{left:1rem}.ba .tag.d{right:1rem}
+.ba .bar{position:absolute;top:0;bottom:0;left:calc(100% - var(--cut,50%));width:1px;background:var(--or);z-index:3;box-shadow:0 0 14px rgba(201,169,110,.8)}
+.ba .knob{position:absolute;top:50%;left:calc(100% - var(--cut,50%));transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--or);background:rgba(11,10,8,.8);color:var(--or);display:flex;align-items:center;justify-content:center;font-size:.9rem;z-index:4;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,169,110,.5)}50%{box-shadow:0 0 0 12px rgba(201,169,110,0)}}
+.ba-caption{margin-top:1rem;font-size:.8rem;color:var(--gris);letter-spacing:.08em}
+
+/* ===== GALERIE ===== */
+.galerie{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:2rem 0 1rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.galerie::-webkit-scrollbar{display:none}
+.galerie figure{flex:0 0 78%;max-width:420px;scroll-snap-align:center;border:1px solid var(--ligne);border-radius:4px;overflow:hidden;position:relative;background:var(--noir2)}
+@media(min-width:720px){.galerie figure{flex:0 0 40%}}
+.galerie img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.2s ease}
+.galerie figure:hover img{transform:scale(1.05)}
+.galerie figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem 1.1rem .9rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--or-clair);background:linear-gradient(to top,rgba(11,10,8,.92),transparent)}
+.galerie-nav{display:flex;gap:.6rem;justify-content:center;margin-top:.6rem}
+.galerie-nav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--ligne);background:transparent;color:var(--or);font-size:1rem;cursor:pointer;transition:.25s}
+.galerie-nav button:hover{border-color:var(--or);background:rgba(201,169,110,.1)}
+
+/* ===== DUO ===== */
+.duo{display:grid;gap:2.2rem;align-items:center}
+@media(min-width:760px){.duo{grid-template-columns:1fr 1fr}.duo.inverse .duo-img{order:2}}
+.duo-img{border:1px solid var(--ligne);border-radius:4px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.duo-img img{transition:transform .2s linear;will-change:transform;transform:translateY(var(--py,0)) scale(1.12)}
+.duo ul{list-style:none;margin-top:1.2rem}
+.duo li{padding:.55rem 0;border-top:1px solid var(--ligne);font-size:.95rem;color:#C9C2B4}
+.duo li b{color:var(--creme);font-weight:500}
+.duo li::before{content:"\2713";color:var(--or);margin-right:.7rem}
+
+
+/* ===== DÉFILEMENT CINÉMATIQUE (galerie 1:1) ===== */
+.defile-section{padding:0;max-width:none;height:520vh;position:relative}
+.defile-colle{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.defile-tete{padding:1.2rem 1.4rem 0;max-width:1060px;margin:0 auto;width:100%}
+.defile-tete h2{margin-bottom:0}
+.piste{display:flex;align-items:center;gap:4vw;padding:2rem 10vw;will-change:transform}
+.diapo{flex:0 0 auto;width:min(58vh,84vw);position:relative;border:1px solid var(--ligne);border-radius:4px;overflow:hidden;background:var(--noir2);box-shadow:0 30px 80px rgba(0,0,0,.55);transition:transform .5s cubic-bezier(.22,1,.36,1),filter .5s ease,border-color .5s ease;transform:scale(.9);filter:brightness(.55) saturate(.85)}
+.diapo.active{transform:scale(1);filter:none;border-color:rgba(201,169,110,.55)}
+.diapo img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;background:#000}
+.diapo figcaption{position:absolute;left:0;right:0;bottom:0;padding:3.2rem 1.3rem 1.2rem;font-family:'Cinzel',serif;font-size:clamp(1rem,2.8vw,1.35rem);letter-spacing:.1em;text-transform:uppercase;color:var(--creme);background:linear-gradient(to top,rgba(11,10,8,.96),transparent);display:flex;align-items:baseline;gap:1rem;line-height:1.3;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.diapo .no{font-family:'Cinzel',serif;color:var(--or);font-size:clamp(1.3rem,3.4vw,1.7rem);letter-spacing:.08em;flex:none}
+.defile-barre{height:1px;background:var(--ligne);margin:1.6rem 10vw 2rem;position:relative}
+.defile-avancee{position:absolute;top:-1px;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--or),var(--or-clair));box-shadow:0 0 12px rgba(201,169,110,.8);border-radius:2px}
+@media(prefers-reduced-motion:reduce){
+  .defile-section{height:auto}
+  .defile-colle{position:static;height:auto}
+  .piste{overflow-x:auto;scroll-snap-type:x mandatory}
+  .diapo{scroll-snap-align:center;transform:none;filter:none}
+}
+
+/* ===== POURQUOI (façon "Why JOE SMP") ===== */
+.pourquoi{border-top:1px solid var(--ligne)}
+.raisons{margin-top:2rem}
+.raison{display:flex;align-items:baseline;gap:1.1rem;padding:1.15rem 0;border-bottom:1px solid var(--ligne);transition:.3s;cursor:default}
+.raison:hover{padding-left:.6rem}
+.raison:hover h3{color:var(--or-clair)}
+.raison .num{font-family:'Cinzel',serif;color:var(--or);font-size:1rem;flex:none}
+.raison h3{font-size:1.05rem;letter-spacing:.04em;transition:.3s}
+.raison p{font-size:.9rem;color:var(--gris);margin-top:.2rem}
+
+/* ===== TECHNIQUE ===== */
+.etapes{display:grid;gap:1.6rem;margin-top:2rem}
+@media(min-width:720px){.etapes{grid-template-columns:repeat(3,1fr)}}
+.etape{border-top:1px solid var(--ligne);padding-top:1.2rem}
+.etape .num{font-family:'Cinzel',serif;color:var(--or);font-size:1.1rem}
+.etape h3{font-size:1rem;margin:.5rem 0 .4rem;letter-spacing:.05em}
+.etape p{font-size:.92rem;color:var(--gris)}
+.rassure{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:1.8rem}
+.puce{border:1px solid var(--ligne);border-radius:999px;padding:.55rem 1.1rem;font-size:.8rem;letter-spacing:.1em;color:var(--or-clair);transition:.3s}
+.puce:hover{border-color:var(--or);background:rgba(201,169,110,.08)}
+
+/* ===== AVIS ===== */
+.avis-grid{display:grid;gap:1rem;margin-top:2rem}
+@media(min-width:720px){.avis-grid{grid-template-columns:repeat(2,1fr)}}
+.avis{border:1px solid var(--ligne);border-radius:4px;padding:1.6rem 1.4rem;background:var(--noir2);transition:.3s}
+.avis:hover{border-color:var(--or)}
+.etoiles{color:var(--or);letter-spacing:.25em;font-size:.85rem;margin-bottom:.7rem}
+.avis p{font-size:.95rem;font-style:italic;color:var(--creme)}
+.avis .qui{margin-top:.9rem;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gris);font-style:normal}
+
+/* ===== AURORE OR (zone offre + CTA) ===== */
+.aurora-zone{position:relative;overflow:hidden;background:#0B0A08}
+.aurora-fond{position:absolute;inset:0;pointer-events:none}
+.aurora-blob{position:absolute;top:0;left:0;border-radius:50%;mix-blend-mode:screen;filter:blur(26px);opacity:.4;will-change:transform,opacity}
+.aurora-glow{position:absolute;top:0;left:0;width:44vmax;height:44vmax;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:0;will-change:transform,opacity;
+  background:radial-gradient(circle,rgba(255,240,210,.16) 0%,rgba(233,217,180,.11) 30%,rgba(201,169,110,.06) 55%,transparent 75%)}
+.aurora-voile{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 115%,rgba(11,10,8,.88) 0%,rgba(11,10,8,.3) 45%,transparent 72%)}
+.aurora-grain{position:absolute;inset:0;pointer-events:none;opacity:.05;background-size:160px 160px;animation:grainJitter .9s steps(4) infinite;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+@keyframes grainJitter{0%{background-position:0 0}25%{background-position:-40px 30px}50%{background-position:60px -20px}75%{background-position:-20px -50px}100%{background-position:0 0}}
+.aurora-zone section{position:relative;z-index:2}
+
+/* ===== BLOC OFFRE (façon giveaway joesmp) ===== */
+.offre{max-width:none;background:transparent;border-top:1px solid var(--ligne);text-align:center;position:relative;overflow:visible}
+.offre-in{max-width:760px;margin:0 auto;position:relative}
+.offre h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.9rem,7.4vw,3.4rem);line-height:1.08}
+.offre h2 em{font-style:normal;color:var(--or)}
+.offre p{color:#C9C2B4;max-width:52ch;margin:1rem auto 0}
+.offre .mini{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);margin-top:1.6rem}
+.offre .cta-row{justify-content:center;margin-top:1.8rem}
+
+/* ===== CTA FINAL ===== */
+.final{text-align:center;position:relative}
+.final h2{max-width:22ch;margin-left:auto;margin-right:auto}
+.final .cta-row{margin:2rem auto 0;justify-content:center}
+
+/* ===== FOOTER ===== */
+footer{border-top:1px solid var(--ligne);padding:2.6rem 1.4rem;text-align:center;color:var(--gris);font-size:.8rem;letter-spacing:.08em}
+footer .logo-footer{display:block;margin:0 auto 1.1rem;width:190px;height:auto}
+footer .credit{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(201,169,110,.12);font-size:.72rem;letter-spacing:.14em;color:#6E655A}
+footer .credit a{color:var(--or);transition:.25s}
+footer .credit a:hover{color:var(--or-clair)}
+
+/* ===== CTA FLOTTANT MOBILE ===== */
+.cta-flottant{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:1px;background:var(--ligne);border-top:1px solid var(--ligne);transform:translateY(110%);transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.cta-flottant.visible{transform:none}
+.cta-flottant a{flex:1;text-align:center;padding:1rem .5rem;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;background:var(--noir2);color:var(--or-clair)}
+.cta-flottant a.principal{background:linear-gradient(120deg,var(--or),#B08F55);color:var(--noir);font-weight:500}
+@media(min-width:720px){.cta-flottant{display:none}}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.vu{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.stagger.vu>*{opacity:1;transform:none}
+.stagger.vu>*:nth-child(1){transition-delay:.05s}
+.stagger.vu>*:nth-child(2){transition-delay:.18s}
+.stagger.vu>*:nth-child(3){transition-delay:.31s}
+.stagger.vu>*:nth-child(4){transition-delay:.44s}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.stagger>*{opacity:1;transform:none;transition:none}
+  .hero-video,.scan,#poussiere,.hero h1 span,.hero p.sous,.hero .cta-row,.stats,.marquee-piste,.btn-or::after,.knob{animation:none!important;opacity:1;transform:none;clip-path:none}
+  .scan{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <a class="logo" href="#"><img src="img/logo-mark.png" alt="LH" class="logo-mark">LUMEA <span>·</span> HAIRLINE STUDIO</a>
+  <a class="nav-cta" href="#rdv">Prendre RDV</a>
+</nav>
+
+<header class="hero" id="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="img/hero-poster.jpg" aria-label="LUMEA Hairline Studio — tricopigmentation">
+    <source src="img/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="scan" aria-hidden="true"></div>
+  <canvas id="poussiere" aria-hidden="true"></canvas>
+  <div class="halo" id="halo" aria-hidden="true"></div>
+  <div class="hero-contenu">
+    <p class="eyebrow"><img src="img/logo-mark.png" alt="Monogramme LH — Lumea">Lumea Hairline Studio · Var</p>
+    <h1><span>Densité.</span><span class="l2">Confiance.</span><span>Sans chirurgie.</span></h1>
+    <p class="sous">Tricopigmentation micro-point ultra réaliste, homme & femme. Un résultat <b>visible dès la première séance</b>, indétectable de près comme de loin.</p>
+    <div class="cta-row">
+      <a class="btn btn-or" href="#rdv">Diagnostic gratuit</a>
+      <span class="badge">Diagnostic privé<br>& confidentiel</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="chiffre">0</div><div class="label">Chirurgie</div></div>
+      <div class="stat"><div class="chiffre">1<em>re</em></div><div class="label">Séance, résultat visible</div></div>
+      <div class="stat"><div class="chiffre"><span data-compte="100">0</span><em>%</em></div><div class="label">Sur mesure</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-piste">
+    <span>Effet naturel</span><span>Résultat immédiat</span><span>Sans douleur & non invasif</span><span>Confidentialité assurée</span><span>Homme & Femme</span><span>Teinte sur mesure</span>
+    <span>Effet naturel</span><span>Résultat immédiat</span><span>Sans douleur & non invasif</span><span>Confidentialité assurée</span><span>Homme & Femme</span><span>Teinte sur mesure</span>
+  </div>
+</div>
+
+<div class="pont reveal">
+  <p class="eyebrow">Lumea Hairline Studio</p>
+  <h2>Retrouvez votre ligne. Retrouvez votre confiance.</h2>
+</div>
+
+<section id="prestations" class="reveal">
+  <p class="eyebrow">Prestations</p>
+  <h2>Une solution personnalisée pour chaque situation</h2>
+  <div class="grid stagger">
+    <div class="carte">
+      <div class="texte">
+        <h3>Tricopigmentation tête entière</h3>
+        <p>Recrée l'apparence d'une chevelure rasée par micro-points pigmentés sur l'ensemble du cuir chevelu. Effet rasé 0, sans reflet.</p>
+        <a class="lien" href="#rdv">Demander un diagnostic</a>
+      </div>
+    </div>
+    <div class="carte">
+      <div class="texte">
+        <h3>Densification golf / vertex</h3>
+        <p>Comble visuellement les zones clairsemées comme le golf ou le vertex avec des micro-points pigmentés. Résultat discret et naturel.</p>
+        <a class="lien" href="#rdv">Demander un diagnostic</a>
+      </div>
+    </div>
+    <div class="carte">
+      <div class="texte">
+        <h3>Camouflage cicatrices FUE / FUT</h3>
+        <p>Camoufle les cicatrices laissées par des greffes. Les micro-pigments s'adaptent à votre carnation pour rendre la cicatrice invisible à l'œil nu.</p>
+        <a class="lien" href="#rdv">Demander un diagnostic</a>
+      </div>
+    </div>
+    <div class="carte">
+      <div class="texte">
+        <h3>Densité femme — effluvium télogène</h3>
+        <p>Chute diffuse liée au stress, à une carence ou un changement hormonal : la tricopigmentation densifie visuellement la chevelure et redonne confiance.</p>
+        <a class="lien" href="#rdv">Demander un diagnostic</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ba-section reveal">
+  <p class="eyebrow">Résultats</p>
+  <h2>Avant / Après</h2>
+  <div class="ba" id="ba">
+    <img src="img/avant.jpg" alt="Avant tricopigmentation — crâne rasé">
+    <img class="apres" src="img/apres.jpg" alt="Après tricopigmentation — effet crâne rasé densifié">
+    <span class="tag g">Avant</span>
+    <span class="tag d">Après</span>
+    <div class="bar"></div>
+    <div class="knob">⇄</div>
+  </div>
+  <p class="ba-caption">Faites glisser pour comparer — chaque résultat est réalisé en micro-point, point par point.</p>
+</section>
+
+
+
+<section class="defile-section" id="resultats-defile">
+  <div class="defile-colle">
+    <div class="defile-tete">
+      <p class="eyebrow">Résultats</p>
+      <h2>Chaque résultat, plein cadre</h2>
+    </div>
+    <div class="piste" id="piste">
+      <figure class="diapo"><img src="img/tete-entiere.jpg" alt="Tricopigmentation tête entière — avant / après"><figcaption><span class="no">01</span>Tricopigmentation tête entière</figcaption></figure>
+      <figure class="diapo"><img src="img/densite.jpg" alt="Densification et pigmentation — avant / après"><figcaption><span class="no">02</span>Densification & pigmentation</figcaption></figure>
+      <figure class="diapo"><img src="img/precision.jpg" alt="Effet naturel indétectable — avant / après"><figcaption><span class="no">03</span>Effet naturel indétectable</figcaption></figure>
+      <figure class="diapo"><img src="img/ligne-redessinee.jpg" alt="Ligne frontale redessinée — avant / après"><figcaption><span class="no">04</span>Ligne frontale redessinée</figcaption></figure>
+      <figure class="diapo"><img src="img/cicatrice.jpg" alt="Camouflage cicatrice FUE / FUT — avant / après"><figcaption><span class="no">05</span>Camouflage cicatrices FUE / FUT</figcaption></figure>
+      <figure class="diapo"><img src="img/femme.jpg" alt="Densité femme — effluvium télogène, avant / après"><figcaption><span class="no">06</span>Densité femme</figcaption></figure>
+      <figure class="diapo"><img src="img/lignes-3.jpg" alt="Les 3 types de ligne frontale : droite, arrondie, en V"><figcaption><span class="no">07</span>3 lignes frontales — droite, arrondie, en V</figcaption></figure>
+    </div>
+    <div class="defile-barre"><div class="defile-avancee" id="avancee"></div></div>
+  </div>
+</section>
+
+<section class="pourquoi reveal">
+  <p class="eyebrow">Pourquoi Lumea</p>
+  <h2>Ce qui fait notre différence</h2>
+  <div class="raisons">
+    <div class="raison"><span class="num">I</span><div><h3>Un travail d'artiste, pas de technicien</h3><p>Chaque follicule est reproduit à la main, un point à la fois. Aucune séance ne ressemble à une autre.</p></div></div>
+    <div class="raison"><span class="num">II</span><div><h3>Résultat naturel, indétectable</h3><p>Notre obsession : que personne ne devine. Ni votre coiffeur, ni votre entourage.</p></div></div>
+    <div class="raison"><span class="num">III</span><div><h3>Studio privé, propre et discret</h3><p>Vous êtes reçu(e) seul(e), en toute confidentialité, dans le Var.</p></div></div>
+    <div class="raison"><span class="num">IV</span><div><h3>Suivi par message, toujours</h3><p>Avant, pendant, après : vous avez une réponse sous 24h par message privé.</p></div></div>
+  </div>
+</section>
+
+<section id="technique" class="reveal">
+  <p class="eyebrow">Comment ça se passe</p>
+  <h2>Le micro-point, point par point</h2>
+  <div class="etapes stagger">
+    <div class="etape">
+      <span class="num">I</span>
+      <h3>Diagnostic privé</h3>
+      <p>Vous envoyez vos photos par message privé. Nous étudions votre zone, votre carnation et vous proposons un plan précis.</p>
+    </div>
+    <div class="etape">
+      <span class="num">II</span>
+      <h3>La séance</h3>
+      <p>Chaque micro-point est déposé un à un pour reproduire un follicule naturel. Teinte sur mesure, ligne frontale dessinée avec vous.</p>
+    </div>
+    <div class="etape">
+      <span class="num">III</span>
+      <h3>Le résultat</h3>
+      <p>Effet visible dès la première séance, affiné lors des retouches. Un rendu qui reste naturel de près comme de loin.</p>
+    </div>
+  </div>
+  <div class="rassure">
+    <span class="puce">Sans chirurgie</span>
+    <span class="puce">Résultat immédiat</span>
+    <span class="puce">Rendu indétectable</span>
+    <span class="puce">Homme & Femme</span>
+  </div>
+</section>
+
+<section class="reveal">
+  <p class="eyebrow">Ils nous font confiance</p>
+  <h2>Vos avis</h2>
+  <div class="avis-grid stagger">
+    <div class="avis">
+      <div class="etoiles">★★★★★</div>
+      <p>« Emplacement pour un avis Google réel — nous intégrerons vos meilleurs avis clients ici, avec lien direct vers votre fiche Google. »</p>
+      <span class="qui">Client · Tricopigmentation</span>
+    </div>
+    <div class="avis">
+      <div class="etoiles">★★★★★</div>
+      <p>« Deuxième emplacement d'avis — la preuve sociale est ce qui transforme un visiteur hésitant en rendez-vous confirmé. »</p>
+      <span class="qui">Cliente · Densité</span>
+    </div>
+  </div>
+</section>
+
+<div class="aurora-zone" id="auroraZone">
+  <div class="aurora-fond" id="auroraFond" aria-hidden="true"></div>
+  <div class="aurora-glow" id="auroraGlow" aria-hidden="true"></div>
+  <div class="aurora-voile" aria-hidden="true"></div>
+  <div class="aurora-grain" aria-hidden="true"></div>
+
+<section class="offre reveal">
+  <div class="offre-in">
+    <p class="eyebrow">Offre de lancement</p>
+    <h2>Votre diagnostic <em>100% gratuit</em> sous 24h</h2>
+    <p>Envoyez simplement 2 ou 3 photos de votre zone par message privé. Vous recevez un plan personnalisé : technique adaptée, nombre de séances et tarif exact — avant de décider quoi que ce soit.</p>
+    <div class="cta-row">
+      <a class="btn btn-or" href="https://ig.me/m/lumea.hairline.studio" target="_blank" rel="noopener">J'envoie mes photos</a>
+    </div>
+    <p class="mini">Sans engagement · Privé & confidentiel · Réponse sous 24h</p>
+  </div>
+</section>
+
+<section id="rdv" class="final reveal">
+  <p class="eyebrow">Diagnostic gratuit</p>
+  <h2>Envoyez vos photos, recevez votre plan personnalisé.</h2>
+  <div class="cta-row">
+    <a class="btn btn-or" href="https://ig.me/m/lumea.hairline.studio" target="_blank" rel="noopener">Diagnostic par message privé</a>
+    <a class="btn btn-ghost" href="https://instagram.com/lumea.hairline.studio" target="_blank" rel="noopener">Voir Instagram</a>
+  </div>
+</section>
+</div>
+
+<footer>
+  <img src="img/logo-full.png" alt="LUMEA Hairline Studio" class="logo-footer">
+  Tricopigmentation · Densification · Alopécie — Var<br>
+  Instagram @lumea.hairline.studio
+  <p class="credit">Site créé par <a href="https://maisonbrandparis.fr" target="_blank" rel="noopener">Maison Brand Paris</a></p>
+</footer>
+
+<div class="cta-flottant" id="ctaFlottant">
+  <a href="https://instagram.com/lumea.hairline.studio" target="_blank" rel="noopener">Instagram</a>
+  <a class="principal" href="#rdv">Diagnostic gratuit</a>
+</div>
+
+<script>
+// ===== Barre de progression =====
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+},{passive:true});
+
+// ===== Halo doré qui suit le curseur + poussière d'or =====
+const hero=document.getElementById('hero'),halo=document.getElementById('halo');
+if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  // Halo
+  const souris={x:innerWidth*.62,y:innerHeight*.4};
+  const doux={x:souris.x,y:souris.y};
+  let dernierMouv=0;
+  hero.addEventListener('pointermove',e=>{souris.x=e.clientX;souris.y=e.clientY;dernierMouv=performance.now()});
+  hero.addEventListener('touchmove',e=>{const t=e.touches[0];souris.x=t.clientX;souris.y=t.clientY;dernierMouv=performance.now()},{passive:true});
+  (function boucle(t){
+    if(t-dernierMouv>2600){
+      souris.x=innerWidth*(0.6+0.28*Math.sin(t*0.00023));
+      souris.y=innerHeight*(0.4+0.2*Math.sin(t*0.00031+1.7));
+    }
+    doux.x+=(souris.x-doux.x)*0.1;
+    doux.y+=(souris.y-doux.y)*0.1;
+    const r=hero.getBoundingClientRect();
+    halo.style.transform=`translate3d(${doux.x-r.left}px,${doux.y-r.top}px,0) translate(-50%,-50%)`;
+    halo.style.opacity=(t>1500)?0.9:0; // apparaît après le balayage
+    requestAnimationFrame(boucle);
+  })(0);
+
+  // Poussière d'or : particules qui flottent autour du crâne
+  const cv=document.getElementById('poussiere'),ctx=cv.getContext('2d');
+  function taille(){cv.width=hero.clientWidth;cv.height=hero.clientHeight}
+  taille();addEventListener('resize',taille);
+  const N=matchMedia('(pointer: coarse)').matches?26:46;
+  const P=Array.from({length:N},()=>({
+    x:Math.random(),y:Math.random(),
+    r:0.6+Math.random()*1.8,
+    vy:0.06+Math.random()*0.16,          // montée lente
+    vx:(Math.random()-0.5)*0.08,
+    ph:Math.random()*Math.PI*2,          // scintillement
+    vph:0.008+Math.random()*0.02
+  }));
+  (function pluie(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    // concentrées côté tête (droite de l'écran sur desktop)
+    const cx=cv.width*(innerWidth>719?0.72:0.6);
+    for(const p of P){
+      p.y-=p.vy/100;p.x+=p.vx/100;p.ph+=p.vph;
+      if(p.y<-0.05){p.y=1.05;p.x=Math.random()}
+      const px=cx+(p.x-0.5)*cv.width*0.62;
+      const py=p.y*cv.height;
+      const a=(0.25+0.55*Math.abs(Math.sin(p.ph)));
+      const g=ctx.createRadialGradient(px,py,0,px,py,p.r*4);
+      g.addColorStop(0,`rgba(240,222,180,${a})`);
+      g.addColorStop(1,'rgba(240,222,180,0)');
+      ctx.fillStyle=g;
+      ctx.beginPath();ctx.arc(px,py,p.r*4,0,7);ctx.fill();
+    }
+    requestAnimationFrame(pluie);
+  })();
+}
+
+// ===== Slider avant/après =====
+const ba=document.getElementById('ba');
+function setCut(x){
+  const r=ba.getBoundingClientRect();
+  let p=((x-r.left)/r.width)*100;
+  p=Math.max(4,Math.min(96,p));
+  ba.style.setProperty('--cut',(100-p)+'%');
+}
+ba.addEventListener('pointerdown',e=>{setCut(e.clientX);
+  const mv=ev=>setCut(ev.clientX);
+  const up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up)};
+  addEventListener('pointermove',mv);addEventListener('pointerup',up);
+});
+
+// ===== Défilement cinématique piloté par le scroll =====
+const dSec=document.querySelector('.defile-section'),piste=document.getElementById('piste'),avancee=document.getElementById('avancee');
+if(dSec&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  const diapos=[...piste.querySelectorAll('.diapo')];
+  let px=0;
+  (function rail(){
+    const r=dSec.getBoundingClientRect();
+    const total=r.height-innerHeight;
+    const prog=Math.max(0,Math.min(1,-r.top/total));
+    const maxX=piste.scrollWidth-innerWidth;
+    px+=((prog*maxX)-px)*0.12; // inertie douce
+    piste.style.transform=`translate3d(${-px}px,0,0)`;
+    avancee.style.width=(prog*100)+'%';
+    // diapo la plus proche du centre = active
+    let best=null,bd=1e9;
+    diapos.forEach(d=>{
+      const c=d.getBoundingClientRect();
+      const dist=Math.abs(c.left+c.width/2-innerWidth/2);
+      if(dist<bd){bd=dist;best=d}
+    });
+    diapos.forEach(d=>d.classList.toggle('active',d===best));
+    requestAnimationFrame(rail);
+  })();
+}
+
+// ===== Reveal + stagger =====
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vu');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+
+// ===== Compteur =====
+const cEl=document.querySelector('[data-compte]');
+const ioC=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;ioC.unobserve(cEl);
+  const cible=+cEl.dataset.compte,t0=performance.now();
+  (function tick(t){const p=Math.min((t-t0)/1400,1);
+    cEl.textContent=Math.round(cible*(1-Math.pow(1-p,3)));
+    if(p<1)requestAnimationFrame(tick);})(t0);
+}));
+ioC.observe(cEl);
+
+// ===== Parallax =====
+const pxs=[...document.querySelectorAll('.parallax img')];
+if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  addEventListener('scroll',()=>{
+    pxs.forEach(img=>{
+      const r=img.parentElement.getBoundingClientRect();
+      const c=(r.top+r.height/2-innerHeight/2)/innerHeight;
+      img.style.setProperty('--py',(c*-6)+'%');
+    });
+  },{passive:true});
+}
+
+// ===== Aurore or (zone offre + CTA) =====
+const zone=document.getElementById('auroraZone'),fond=document.getElementById('auroraFond'),glow=document.getElementById('auroraGlow');
+if(zone&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  const INT=matchMedia('(pointer: coarse)').matches?0.55:1;
+  const NAPPES=[
+    {c:'201,169,110',s:56,x:24,y:30,d:.25,p:0},    // or
+    {c:'233,217,180',s:46,x:70,y:22,d:.5,p:1.3},   // or clair
+    {c:'216,146,60', s:50,x:56,y:70,d:.7,p:2.2},   // ambre
+    {c:'150,102,52', s:60,x:12,y:72,d:.35,p:3.5},  // bronze
+    {c:'244,226,182',s:40,x:86,y:58,d:.85,p:4.3},  // champagne
+  ];
+  const els=NAPPES.map(b=>{
+    const el=document.createElement('div');
+    el.className='aurora-blob';
+    el.style.width=el.style.height=b.s+'vmax';
+    el.style.background=`radial-gradient(circle,rgba(${b.c},.6) 0%,rgba(${b.c},.22) 38%,rgba(${b.c},0) 70%)`;
+    fond.appendChild(el);return el;
+  });
+  const cible={x:innerWidth*.5,y:200},pos={x:cible.x,y:cible.y},vit={x:0,y:0};
+  let energie=0,dernier=0,lx=cible.x,ly=cible.y;
+  zone.addEventListener('pointermove',e=>{
+    const r=zone.getBoundingClientRect();
+    const x=e.clientX-r.left,y=e.clientY-r.top;
+    energie=Math.min(1,energie+Math.hypot(x-lx,y-ly)*0.012);
+    lx=x;ly=y;cible.x=x;cible.y=y;dernier=performance.now();
+  },{passive:true});
+  (function anime(t){
+    const r=zone.getBoundingClientRect();
+    const visible=r.bottom>0&&r.top<innerHeight;
+    if(visible){
+      const W=r.width,H=r.height,M=Math.max(W,H);
+      if(t-dernier>3200){
+        cible.x=W*(0.5+0.3*Math.sin(t*0.00019));
+        cible.y=H*(0.45+0.22*Math.sin(t*0.00027+1.6));
+      }
+      vit.x=(vit.x+(cible.x-pos.x)*0.045)*0.86;
+      vit.y=(vit.y+(cible.y-pos.y)*0.045)*0.86;
+      pos.x+=vit.x;pos.y+=vit.y;
+      energie*=0.965;
+      NAPPES.forEach((b,i)=>{
+        const sp=0.00006+b.d*0.00013;
+        const bx=(b.x+Math.sin(t*sp+b.p)*(5+b.d*6))/100*W;
+        const by=(b.y+Math.cos(t*sp*1.27+b.p*1.7)*(4+b.d*5))/100*H;
+        const prox=Math.max(0,1-Math.hypot(pos.x-bx,pos.y-by)/(M*0.42));
+        const pop=prox*prox*(0.5+energie)*INT;
+        const taille=b.s/100*M;
+        els[i].style.transform=`translate3d(${bx-taille/2+(pos.x-bx)*0.06*pop}px,${by-taille/2+(pos.y-by)*0.06*pop}px,0) scale(${1+pop*0.22})`;
+        els[i].style.opacity=0.38*INT+pop*0.38;
+      });
+      glow.style.transform=`translate3d(${pos.x}px,${pos.y}px,0) translate(-50%,-50%) scale(${0.9+energie*0.6})`;
+      glow.style.opacity=(0.22+energie*0.5)*INT;
+    }
+    requestAnimationFrame(anime);
+  })(0);
+}
+
+// ===== CTA flottant =====
+const flot=document.getElementById('ctaFlottant');
+const ioF=new IntersectionObserver(es=>es.forEach(e=>{
+  flot.classList.toggle('visible',!e.isIntersecting);
+}),{threshold:.1});
+ioF.observe(document.querySelector('.hero'));
+</script>
+</body>
+</html>
