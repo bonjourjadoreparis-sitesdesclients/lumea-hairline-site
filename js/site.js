@@ -245,3 +245,19 @@ if(sceneV){
   }),{threshold:.45});
   ioE.observe(sceneV);
 }
+
+// ===== Accordéon vidéos : survol / tap + cycle auto =====
+const acc=document.getElementById('accordeon');
+if(acc){
+  const volets=[...acc.querySelectorAll('.volet-v')];
+  let idx=0,timer=null,pause=0;
+  const active=(n)=>{idx=n;volets.forEach((v,i)=>v.classList.toggle('actif',i===n))};
+  volets.forEach((v,i)=>{
+    v.addEventListener('mouseenter',()=>{active(i);pause=performance.now()});
+    v.addEventListener('click',()=>{active(i);pause=performance.now()});
+  });
+  timer=setInterval(()=>{
+    if(performance.now()-pause<5000)return;  // ne pas couper l'utilisateur
+    active((idx+1)%volets.length);
+  },4000);
+}
