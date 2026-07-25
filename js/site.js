@@ -261,3 +261,12 @@ if(acc){
     active((idx+1)%volets.length);
   },4000);
 }
+
+// ===== Remonter en haut =====
+const hautPage=document.getElementById('hautPage');
+if(hautPage){
+  addEventListener('scroll',()=>{
+    hautPage.classList.toggle('visible',scrollY>innerHeight*1.2);
+  },{passive:true});
+  hautPage.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+}
