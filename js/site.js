@@ -265,3 +265,20 @@ if(hautPage){
   },{passive:true});
   hautPage.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 }
+
+// ===== Vidéos : lecture en boucle garantie =====
+document.querySelectorAll('video').forEach(v=>{
+  v.loop=true;v.muted=true;v.setAttribute('playsinline','');
+  v.addEventListener('ended',()=>{v.currentTime=0;v.play()});
+  v.addEventListener('pause',()=>{ // relance si le navigateur la coupe (économie d'énergie)
+    if(!v.dataset.stop)setTimeout(()=>v.play().catch(()=>{}),300);
+  });
+});
+document.addEventListener('touchstart',()=>{ // iOS Low Power : relance au premier toucher
+  document.querySelectorAll('video').forEach(v=>{if(v.paused)v.play().catch(()=>{})});
+},{once:true,passive:true});
+const ioVid=new IntersectionObserver(es=>es.forEach(e=>{
+  const v=e.target;
+  if(e.isIntersecting){if(v.paused)v.play().catch(()=>{})}
+}),{threshold:.2});
+document.querySelectorAll('video').forEach(v=>ioVid.observe(v));

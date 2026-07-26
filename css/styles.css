@@ -350,7 +350,7 @@ nav{gap:.8rem}
 @media(max-width:560px){
   .logo{font-size:1.6rem;letter-spacing:.08em;gap:.6rem}
   .logo-mark{height:50px}
-  .logo-sub{font-size:.6rem;letter-spacing:.22em;margin-left:.6rem}
+  .logo-sub{font-size:.82rem;letter-spacing:.24em;margin-left:.65rem;line-height:1.4}
   .nav-cta{font-size:.66rem;padding:.45rem .65rem;letter-spacing:.06em;flex:none}
 }
 
@@ -378,3 +378,6 @@ nav{gap:.8rem}
 .ig-panneau{overflow:hidden}
 .ig-panneau iframe{display:block;width:100%;height:720px;border:0;border-radius:10px;background:#fff}
 @media(max-width:719px){.ig-panneau iframe{height:430px}}
+
+/* ===== Masquer sur mobile ===== */
+@media(max-width:719px){.masque-mobile{display:none}}
