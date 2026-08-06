@@ -1,3 +1,14 @@
+// ===== Hauteur du hero figée (barre navigateur mobile) =====
+(function hauteurHero(){
+  const h=document.querySelector('.hero');
+  if(!h)return;
+  const fixe=()=>h.style.height=innerHeight+'px';
+  fixe();
+  let l=innerWidth;
+  addEventListener('resize',()=>{ if(innerWidth!==l){l=innerWidth;fixe();} }); // rotation seulement
+  addEventListener('orientationchange',()=>setTimeout(fixe,250));
+})();
+
 
 // ===== Barre de progression =====
 const prog=document.getElementById('progress');
