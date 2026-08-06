@@ -8,7 +8,7 @@ addEventListener('scroll',()=>{
 
 // ===== Halo doré qui suit le curseur + poussière d'or =====
 const hero=document.getElementById('hero'),halo=document.getElementById('halo');
-if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+if(matchMedia('(prefers-reduced-motion: no-preference)').matches && innerWidth>719){
   // Halo
   const souris={x:innerWidth*.62,y:innerHeight*.4};
   const doux={x:souris.x,y:souris.y};
@@ -32,7 +32,7 @@ if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
   const cv=document.getElementById('poussiere'),ctx=cv.getContext('2d');
   function taille(){cv.width=hero.clientWidth;cv.height=hero.clientHeight}
   taille();addEventListener('resize',taille);
-  const N=matchMedia('(pointer: coarse)').matches?26:46;
+  const N=46;
   const P=Array.from({length:N},()=>({
     x:Math.random(),y:Math.random(),
     r:0.6+Math.random()*1.8,
@@ -86,8 +86,9 @@ if(dSec&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
     const prog=Math.max(0,Math.min(1,-r.top/total));
     const maxX=piste.scrollWidth-innerWidth;
     px+=((prog*maxX)-px)*0.12; // inertie douce
-    piste.style.transform=`translate3d(${-px}px,0,0)`;
-    avancee.style.width=(prog*100)+'%';
+    const npx=Math.round(px*100)/100;
+    if(npx!==piste._last){piste.style.transform=`translate3d(${-npx}px,0,0)`;piste._last=npx}
+    avancee.style.width=(prog*100).toFixed(1)+'%';
     // diapo la plus proche du centre = active
     let best=null,bd=1e9;
     diapos.forEach(d=>{
@@ -106,7 +107,7 @@ document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
 
 // ===== Parallax =====
 const pxs=[...document.querySelectorAll('.parallax img')];
-if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+if(matchMedia('(prefers-reduced-motion: no-preference)').matches && innerWidth>719){
   addEventListener('scroll',()=>{
     pxs.forEach(img=>{
       const r=img.parentElement.getBoundingClientRect();
@@ -284,3 +285,12 @@ const ioVid=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){if(v.paused)v.play().catch(()=>{})}
 }),{threshold:.2});
 document.querySelectorAll('video').forEach(v=>ioVid.observe(v));
+
+// ===== Instagram : préchargé dès l'ouverture, révélé une fois prêt =====
+const igF=document.getElementById('igFrame');
+if(igF){
+  const pan=igF.closest('.ig-panneau');
+  const pret=()=>pan.classList.add('pret');
+  igF.addEventListener('load',()=>setTimeout(pret,400));
+  setTimeout(pret,6000); // filet de sécurité
+}

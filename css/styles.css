@@ -30,7 +30,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .nav-cta:hover{background:var(--or);color:var(--noir)}
 
 /* ===== HERO ===== */
-.hero{min-height:100svh;height:100dvh;position:relative;display:flex;align-items:flex-end;overflow:hidden;padding:0;max-width:none;background:#000}
+.hero{min-height:100svh;height:100svh;position:relative;display:flex;align-items:flex-end;overflow:hidden;padding:0;max-width:none;background:#000}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 24%;animation:devoile 2.1s cubic-bezier(.65,0,.35,1) 1.5s both;will-change:clip-path}
 @media(min-width:720px){.hero-video{object-position:60% center}}
 @keyframes devoile{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
@@ -173,7 +173,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 
 /* ===== DÉFILEMENT CINÉMATIQUE (galerie 1:1) ===== */
 .defile-section{padding:0;max-width:none;height:520vh;position:relative}
-.defile-colle{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.defile-colle{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .defile-tete{padding:1.2rem 1.4rem 0;max-width:1060px;margin:0 auto;width:100%}
 .defile-tete h2{margin-bottom:0}
 .piste{display:flex;align-items:center;gap:4vw;padding:2rem 10vw;will-change:transform}
@@ -381,3 +381,23 @@ nav{gap:.8rem}
 
 /* ===== Masquer sur mobile ===== */
 @media(max-width:719px){.masque-mobile{display:none}}
+
+/* ===== FLUIDITÉ SCROLL MOBILE ===== */
+.hero-video,.piste,.diapo,.volet-v,.tel-cadre,.duo-img img,.resultat img{transform:translateZ(0);backface-visibility:hidden}
+.defile-colle,.scene-colle{will-change:transform}
+img,video{image-rendering:auto}
+@media(max-width:719px){
+  .hero-img,.hero-video{animation:none!important}   /* plus de ken burns : source de tremblement */
+  .duo-img.parallax img{transform:none!important}
+  #poussiere{display:none}
+  .aurora-blob{filter:blur(20px)}
+}
+
+/* ===== Instagram : chargement sans flash blanc ===== */
+.ig-panneau{position:relative}
+.ig-panneau iframe{opacity:0;transition:opacity .5s ease}
+.ig-panneau.pret iframe{opacity:1}
+.ig-attente{position:absolute;inset:.6rem;border-radius:10px;background:linear-gradient(180deg,#171310,#0B0A08);display:flex;align-items:center;justify-content:center;transition:opacity .5s ease}
+.ig-panneau.pret .ig-attente{opacity:0;pointer-events:none}
+.ig-attente span{width:34px;height:34px;border:2px solid rgba(201,169,110,.25);border-top-color:var(--or);border-radius:50%;animation:tourne .9s linear infinite}
+@keyframes tourne{to{transform:rotate(360deg)}}
