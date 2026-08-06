@@ -174,10 +174,12 @@ if(zone&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
 
 // ===== CTA flottant =====
 const flot=document.getElementById('ctaFlottant');
-const ioF=new IntersectionObserver(es=>es.forEach(e=>{
-  flot.classList.toggle('visible',!e.isIntersecting);
-}),{threshold:.1});
-ioF.observe(document.querySelector('.hero'));
+if(flot){
+  const ioF=new IntersectionObserver(es=>es.forEach(e=>{
+    flot.classList.toggle('visible',!e.isIntersecting);
+  }),{threshold:.1});
+  ioF.observe(document.querySelector('.hero'));
+}
 
 // ===== Compteurs : délai configurable + format fr =====
 document.querySelectorAll('[data-compte]').forEach(el=>{
